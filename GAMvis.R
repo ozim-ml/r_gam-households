@@ -91,4 +91,3 @@ g2 <-  draw(gam2, dist = 0) + labs(title = "te(x1, x2)",
                                    y = "Inflation rate")
 
 ggplot2.multiplot(g1,g2, cols = 2)
-
