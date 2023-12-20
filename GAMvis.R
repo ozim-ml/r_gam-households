@@ -12,7 +12,6 @@ df <- read.csv('https://raw.githubusercontent.com/ozim-ml/r_gam-households/main/
 df$t <- as.Date(df$t)
 df$t_year <- format(df$t, "%Y")
 
-
 # plotting households sales
 p1 <- ggplot(df, aes(x = t)) +
   geom_line(aes(y = y1, 
@@ -60,9 +59,7 @@ p2 <- ggplot(df, aes(x = t)) +
                      values = c("Reference rate" = "darkgreen",
                                 "Inflation rate" = "orange"))
 
-
 ggplot2.multiplot(p1,p2, cols = 1)
-
 
 # GAM for the primary market
 gam1 <- gam(log(y1) ~ te(x1, x2), data = df)
@@ -70,6 +67,8 @@ gam.check(gam1)
 summary(gam1)
 AIC(gam1)
 logLik(gam1)
+
+# diagnostic plots of primary market model
 appraise(gam1)
 
 # GAM for the secondary market
@@ -78,6 +77,8 @@ gam.check(gam2)
 summary(gam2)
 AIC(gam2)
 logLik(gam2)
+
+# diagnostic plots of secondary market model
 appraise(gam2)
 
 # visualization of models
