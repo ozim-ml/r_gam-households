@@ -5,7 +5,7 @@ library(ggplot2)
 library(easyGgplot2)
 library(graphics)
 
-df <- read.csv('https://raw.githubusercontent.com/ozim-ml/r_gam-households/main/households_pl.csv',
+df <- read.csv('https://raw.githubusercontent.com/ozim-ml/r_gam-households/main/households_sales.csv',
                header = TRUE)
 
 #convert first column to date object 
